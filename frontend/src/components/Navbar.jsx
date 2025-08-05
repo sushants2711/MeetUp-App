@@ -23,8 +23,10 @@ export const Navbar = ({ setSearchResult }) => {
 
     if(success) {
       setSearchResult(data);
+      setQuery("")
     }else {
       setSearchResult([])
+      setQuery("")
     }
   };
 
