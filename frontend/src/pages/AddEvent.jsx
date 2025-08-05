@@ -17,6 +17,7 @@ export const AddEvent = () => {
         dressCode: "",
         speaker: "",
         price: "",
+        venue: ""
     });
 
     const handleChange = (e) => {
@@ -36,10 +37,11 @@ export const AddEvent = () => {
             !formData.event ||
             !formData.date ||
             !formData.image ||
-            !formData.speaker
+            !formData.speaker ||
+            !venue
         ) {
             return handleError(
-                "title, description, date, image, event, speaker fields are required."
+                "title, description, date, image, event, speaker,venue fields are required."
             );
            
         }
@@ -68,6 +70,7 @@ export const AddEvent = () => {
                 dressCode: "",
                 speaker: "",
                 price: "",
+                venue: ""
             });
             setTimeout(() => {
                 navigate("/");
@@ -143,6 +146,11 @@ export const AddEvent = () => {
                         onChange={handleChange}
                         placeholder="Paste image URL"
                     />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Venue</label>
+                    <input type="text" name="venue" className="form-control" value={formData.value} onChange={handleChange} placeholder="Enter the venue" />
                 </div>
 
                 <div className="mb-3">

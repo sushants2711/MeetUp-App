@@ -3,9 +3,9 @@ import eventModel from "../model/event.model.js";
 
 export const add = async (req, res) => {
     try {
-        const { title, description, event, date, image, dressCode, speaker, price } = req.body;
+        const { title, description, event, date, image, dressCode, speaker, price, venue } = req.body;
 
-        if (!title || !description || !event || !date || !image || !speaker) {
+        if (!title || !description || !event || !date || !image || !speaker || !venue) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required",
@@ -20,7 +20,8 @@ export const add = async (req, res) => {
             image,
             dressCode,
             speaker,
-            price
+            price,
+            venue
         });
 
         const result = await data.save();
