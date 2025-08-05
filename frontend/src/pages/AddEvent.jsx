@@ -38,7 +38,7 @@ export const AddEvent = () => {
       !formData.date ||
       !formData.image ||
       !formData.speaker ||
-      !venue
+      !formData.venue
     ) {
       return handleError(
         "title, description, date, image, event, speaker,venue fields are required."
