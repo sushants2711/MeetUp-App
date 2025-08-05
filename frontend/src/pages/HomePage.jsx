@@ -5,7 +5,7 @@ import { handleSuccess } from "../toast_message/successMessage";
 import { handleError } from "../toast_message/errorMessage";
 import { ToastContainer } from "react-toastify";
 
-export const HomePage = () => {
+export const HomePage = ({ searchResult }) => {
   const [eventData, setEventData] = useState([]);
   const [error, setError] = useState(null);
   const [drop, setDrop] = useState("Both");
@@ -49,8 +49,12 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
-    fetchDataMethod();
-  }, [drop]);
+    if (searchResult && searchResult.length > 0) {
+      setEventData(searchResult);
+    } else {
+      fetchDataMethod();
+    }
+  }, [searchResult, drop]);
 
   const handleClick = (id) => {
     navigate(`/details/${id}`);
@@ -61,15 +65,16 @@ export const HomePage = () => {
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h1>Meetup Events</h1>
 
-          <select name="event" onChange={handleChange}>
-            <option value="" disabled>Select value</option>
-            <option value="Online">Online</option>
-            <option value="Offline">Offline</option>
-            <option value="Both">Both</option>
-          </select>
-
+        <select name="event" onChange={handleChange}>
+          <option value="" disabled>
+            Select value
+          </option>
+          <option value="Online">Online</option>
+          <option value="Offline">Offline</option>
+          <option value="Both">Both</option>
+        </select>
       </div>
-    
+
       {error && (
         <div className="alert alert-danger" role="alert">
           {error}

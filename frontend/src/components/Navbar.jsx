@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+export const Navbar = ({ setSearchResult }) => {
   const [query, setQuery] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
+  // const [searchResult, setSearchResult] = useState([]);
 
 
   const handleChange = (e) => {
@@ -48,8 +48,8 @@ export const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to="/add">
-              <button className="btn btn-warning px-4 mx-5">
-                Add
+              <button className="btn btn-warning px-4 mx-md-5 w-100">
+                Add Event
                 </button>
               </Link>
             </li>

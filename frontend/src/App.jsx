@@ -3,13 +3,15 @@ import { HomePage } from "./pages/HomePage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { AddEvent } from "./pages/AddEvent";
 import { Navbar } from "./components/Navbar";
+import { useState } from "react";
 
 function App() {
+  const [searchResult, setSearchResult] = useState([]);
   return (
     <>
-    <Navbar />
+    <Navbar setSearchResult={setSearchResult}/>
     <Routes>
-      <Route path="/" element={<HomePage /> } /> 
+      <Route path="/" element={<HomePage searchResult={searchResult}/> } /> 
       <Route path="/details/:id" element={<DetailsPage />} />
       <Route path="/add" element={<AddEvent />} />
     </Routes>
