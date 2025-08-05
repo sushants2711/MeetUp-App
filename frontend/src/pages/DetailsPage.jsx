@@ -74,6 +74,7 @@ export const DetailsPage = () => {
             <div className="mt-3 p-3 bg-light border rounded">
               <p><strong>Dress Code:</strong> {eventData.dressCode}</p>
               <p><strong>Speaker:</strong> {eventData.speaker}</p>
+              <p><strong>Venue:</strong> {eventData.venue}</p>
             </div>
           )}
         </div>
