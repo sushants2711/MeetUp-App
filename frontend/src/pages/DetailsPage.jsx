@@ -13,7 +13,7 @@ export const DetailsPage = () => {
 
   const fetchDataMethod = async () => {
     try {
-      const url = `https://meetup-app-sushant.onrender.com/${id}`;
+      const url = `https://meetup-app-sushant.onrender.com/event${id}`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include"
