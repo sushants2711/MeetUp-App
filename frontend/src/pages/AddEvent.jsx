@@ -44,7 +44,7 @@ export const AddEvent = () => {
            
         }
 
-        const url = "http://localhost:2450/event/add";
+        const url = "https://meetup-app-sushant.onrender.com/event/add";
         const response = await fetch(url, {
             method: "POST",
             headers: {

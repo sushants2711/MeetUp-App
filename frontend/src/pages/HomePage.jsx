@@ -17,7 +17,7 @@ export const HomePage = () => {
   };
 
   const fetchDataMethod = async () => {
-    const url = "http://localhost:2450/event";
+    const url = "https://meetup-app-sushant.onrender.com/event";
 
     try {
       const response = await fetch(url, {

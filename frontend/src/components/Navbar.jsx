@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const url = `http://localhost:2450/event?query=${query}`
+    const url = `https://meetup-app-sushant.onrender.com/event?query=${query}`
     const response = await fetch(url, {
       method: "GET",
       credentials: "include"
