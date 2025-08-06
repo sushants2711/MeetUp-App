@@ -75,11 +75,11 @@ export const DetailsPage = () => {
           <p className="card-text">
             <strong>Date:</strong> {new Date(eventData.date).toLocaleString()}
           </p>
-          {eventData.price && (
+          {eventData.price ? (
             <p className="card-text">
               <strong>Price:</strong> ₹{eventData.price}
             </p>
-          )}
+          ): <p className="card-text">Free</p>}
 
           <button
             className="btn btn-primary mt-3"
