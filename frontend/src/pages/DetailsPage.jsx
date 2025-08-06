@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { handleSuccess } from '../toast_message/successMessage';
-import { handleError } from '../toast_message/errorMessage';
-import { ToastContainer } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { handleSuccess } from "../toast_message/successMessage";
+import { handleError } from "../toast_message/errorMessage";
+import { ToastContainer } from "react-toastify";
 
 export const DetailsPage = () => {
   const [eventData, setEventData] = useState("");
@@ -16,7 +16,7 @@ export const DetailsPage = () => {
       const url = `https://meetup-app-sushant.onrender.com/event/${id}`;
       const response = await fetch(url, {
         method: "GET",
-        credentials: "include"
+        credentials: "include",
       });
       const result = await response.json();
 
@@ -24,14 +24,22 @@ export const DetailsPage = () => {
 
       if (success) {
         setEventData(data);
-        handleSuccess(message)
+        handleSuccess(message);
       } else {
-        setError(message || error || "Error occurred while fetching the data through API");
-        handleError(message || error || "Error occurred while fetching the data through API")
+        setError(
+          message ||
+          error ||
+          "Error occurred while fetching the data through API"
+        );
+        handleError(
+          message ||
+          error ||
+          "Error occurred while fetching the data through API"
+        );
       }
     } catch (err) {
       setError(err);
-      handleError(err)
+      handleError(err);
     }
   };
 
@@ -58,10 +66,20 @@ export const DetailsPage = () => {
         />
         <div className="card-body">
           <h3 className="card-title">{eventData.title}</h3>
-          <p className="card-text"><strong>Description:</strong> {eventData.description}</p>
-          <p className="card-text"><strong>Type:</strong> {eventData.event}</p>
-          <p className="card-text"><strong>Date:</strong> {new Date(eventData.date).toLocaleString()}</p>
-          <p className="card-text"><strong>Price:</strong> ₹{eventData.price}</p>
+          <p className="card-text">
+            <strong>Description:</strong> {eventData.description}
+          </p>
+          <p className="card-text">
+            <strong>Type:</strong> {eventData.event}
+          </p>
+          <p className="card-text">
+            <strong>Date:</strong> {new Date(eventData.date).toLocaleString()}
+          </p>
+          {eventData.price && (
+            <p className="card-text">
+              <strong>Price:</strong> ₹{eventData.price}
+            </p>
+          )}
 
           <button
             className="btn btn-primary mt-3"
@@ -72,9 +90,15 @@ export const DetailsPage = () => {
 
           {showExtra && (
             <div className="mt-3 p-3 bg-light border rounded">
-              <p><strong>Dress Code:</strong> {eventData.dressCode}</p>
-              <p><strong>Speaker:</strong> {eventData.speaker}</p>
-              <p><strong>Venue:</strong> {eventData.venue}</p>
+              <p>
+                <strong>Dress Code:</strong> {eventData.dressCode}
+              </p>
+              <p>
+                <strong>Speaker:</strong> {eventData.speaker}
+              </p>
+              <p>
+                <strong>Venue:</strong> {eventData.venue}
+              </p>
             </div>
           )}
         </div>

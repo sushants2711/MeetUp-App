@@ -19,7 +19,7 @@ export const Navbar = ({ setSearchResult }) => {
     })
     const result = await response.json();
     const { success, message, error, data } = result;
-    console.log(data)
+    // console.log(data)
 
     if(success) {
       setSearchResult(data);
